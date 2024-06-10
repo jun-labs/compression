@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  redis1:
+    image: redis:latest
+    command: redis-server --io-threads 4 --io-threads-do-reads yes
+    restart: always
+    environment:
+      - REDIS_REPLICATION_MODE=master
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 6379:6379
